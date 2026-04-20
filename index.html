@@ -349,84 +349,256 @@
     }
 
     /* ── Results ── */
-    .results-section { background: var(--gray-50); }
+    .results-section { background: var(--black); color: var(--white); }
 
-    .results-layout {
+    .results-section .label { color: var(--purple); }
+
+    .results-section .section-title { color: var(--white); }
+
+    .results-section .section-sub { color: rgba(255,255,255,0.45); margin-bottom: 48px; }
+
+    /* Live ticker badge */
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(127,119,221,0.12);
+      border: 1px solid rgba(127,119,221,0.3);
+      color: #a9a4f0;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7F77DD;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* Big stat grid */
+    .results-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .result-hero-card {
+      background: #111111;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .result-hero-card:hover {
+      background: #161616;
+    }
+
+    .result-hero-num {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .result-hero-num .accent { color: var(--purple); }
+
+    .result-hero-label {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.4;
+    }
+
+    /* Google rank detail card */
+    .rank-detail {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
+      gap: 16px;
     }
 
-    .result-bar { margin-bottom: 24px; }
+    .rank-card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+    }
 
-    .result-bar-header {
+    .rank-card-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .rank-track {
       display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
+      align-items: center;
+      gap: 12px;
     }
 
-    .result-bar-label {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--gray-600);
+    .rank-pip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
     }
 
-    .result-bar-val {
+    .rank-pip-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-display);
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--black);
+      color: rgba(255,255,255,0.3);
     }
 
-    .bar-bg {
-      height: 5px;
-      background: var(--gray-200);
+    .rank-pip-dot.active {
+      border-color: var(--purple);
+      background: rgba(127,119,221,0.15);
+      color: var(--purple);
+    }
+
+    .rank-pip-dot.new {
+      border-color: #7F77DD;
+      background: var(--purple);
+      color: var(--white);
+      box-shadow: 0 0 0 4px rgba(127,119,221,0.2);
+    }
+
+    .rank-arrow {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .rank-arrow-line {
+      width: 100%;
+      height: 1px;
+      background: rgba(127,119,221,0.3);
+      position: relative;
+    }
+
+    .rank-arrow-line::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -3px;
+      border-left: 5px solid rgba(127,119,221,0.5);
+      border-top: 3.5px solid transparent;
+      border-bottom: 3.5px solid transparent;
+    }
+
+    .rank-pip-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    .rank-summary {
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .rank-summary strong {
+      color: var(--purple);
+      font-weight: 500;
+    }
+
+    /* Bar chart card */
+    .bar-chart-card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+    }
+
+    .bar-chart-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .bar-row:last-child { margin-bottom: 0; }
+
+    .bar-row-tag {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      width: 52px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .bar-outer {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
       border-radius: 4px;
       overflow: hidden;
     }
 
-    .bar-fill {
+    .bar-inner {
       height: 100%;
-      background: var(--purple);
       border-radius: 4px;
+      animation: growBar 1.2s ease-out forwards;
       transform-origin: left;
-      animation: growBar 1s ease-out forwards;
     }
+
+    .bar-inner.purple { background: var(--purple); }
+    .bar-inner.dim { background: rgba(127,119,221,0.3); }
 
     @keyframes growBar {
       from { transform: scaleX(0); }
       to { transform: scaleX(1); }
     }
 
-    .stats-stack { display: flex; flex-direction: column; gap: 16px; }
-
-    .stat-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 12px;
-      padding: 24px 28px;
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
-
-    .stat-num {
+    .bar-val {
       font-family: var(--font-display);
-      font-size: 36px;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--black);
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .stat-label {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--gray-600);
-      line-height: 1.4;
+      color: rgba(255,255,255,0.7);
+      width: 44px;
+      flex-shrink: 0;
     }
 
     /* ── Pricing model ── */
@@ -548,7 +720,8 @@
       .section { padding: 64px 24px; }
       .process-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .results-layout { grid-template-columns: 1fr; gap: 40px; }
+      .results-hero-grid { grid-template-columns: repeat(2, 1fr); }
+      .rank-detail { grid-template-columns: 1fr; }
       .pricing-block { grid-template-columns: 1fr; gap: 28px; }
       .cta-section { padding: 72px 24px; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
@@ -666,47 +839,88 @@
   <!-- Results -->
   <section class="section results-section" id="results">
     <div class="section-inner">
-      <p class="label">Results</p>
-      <h2 class="section-title">What clients see in 30 days</h2>
-      <p class="section-sub">Average results across active campaigns.</p>
-      <div class="results-layout">
-        <div>
-          <div class="result-bar">
-            <div class="result-bar-header">
-              <span class="result-bar-label">Lead volume increase</span>
-              <span class="result-bar-val">+82%</span>
-            </div>
-            <div class="bar-bg"><div class="bar-fill" style="width:82%"></div></div>
-          </div>
-          <div class="result-bar">
-            <div class="result-bar-header">
-              <span class="result-bar-label">Cost per lead reduction</span>
-              <span class="result-bar-val">−64%</span>
-            </div>
-            <div class="bar-bg"><div class="bar-fill" style="width:64%"></div></div>
-          </div>
-          <div class="result-bar">
-            <div class="result-bar-header">
-              <span class="result-bar-label">Landing page conversion rate</span>
-              <span class="result-bar-val">7.4%</span>
-            </div>
-            <div class="bar-bg"><div class="bar-fill" style="width:74%"></div></div>
-          </div>
+      <div class="live-badge">
+        <div class="live-dot"></div>
+        Last month's results
+      </div>
+      <h2 class="section-title">The numbers speak for themselves</h2>
+      <p class="section-sub">Real figures from a live client campaign — no averages, no estimates.</p>
+
+      <!-- Big 4 stats -->
+      <div class="results-hero-grid fade-up">
+        <div class="result-hero-card">
+          <div class="result-hero-num">+<span class="accent">137</span>%</div>
+          <div class="result-hero-label">Sales increase month-over-month</div>
         </div>
-        <div class="stats-stack">
-          <div class="stat-card">
-            <div class="stat-num">30</div>
-            <div class="stat-label">Days to first results</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Australian businesses served</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-num">0%</div>
-            <div class="stat-label">Fee unless we deliver</div>
-          </div>
+        <div class="result-hero-card">
+          <div class="result-hero-num"><span class="accent">16.1</span>x</div>
+          <div class="result-hero-label">Return on ad spend (ROAS)</div>
         </div>
+        <div class="result-hero-card">
+          <div class="result-hero-num"><span class="accent">8.03</span>%</div>
+          <div class="result-hero-label">Click-through rate on Google Ads</div>
+        </div>
+        <div class="result-hero-card">
+          <div class="result-hero-num">#<span class="accent">4</span></div>
+          <div class="result-hero-label">Google Business Profile ranking</div>
+        </div>
+      </div>
+
+      <!-- Detail row -->
+      <div class="rank-detail fade-up" style="transition-delay:0.12s">
+
+        <!-- GBP rank movement -->
+        <div class="rank-card">
+          <div class="rank-card-label">Google Business Profile — rank movement</div>
+          <div class="rank-track">
+            <div class="rank-pip">
+              <div class="rank-pip-dot active">#7</div>
+              <div class="rank-pip-label">before</div>
+            </div>
+            <div class="rank-arrow">
+              <div class="rank-arrow-line"></div>
+            </div>
+            <div class="rank-pip">
+              <div class="rank-pip-dot"></div>
+            </div>
+            <div class="rank-arrow">
+              <div class="rank-arrow-line"></div>
+            </div>
+            <div class="rank-pip">
+              <div class="rank-pip-dot"></div>
+            </div>
+            <div class="rank-arrow">
+              <div class="rank-arrow-line"></div>
+            </div>
+            <div class="rank-pip">
+              <div class="rank-pip-dot new">#4</div>
+              <div class="rank-pip-label">now</div>
+            </div>
+          </div>
+          <div class="rank-summary">Moved <strong>3 positions</strong> up local search in one month — putting the business in front of significantly more nearby customers.</div>
+        </div>
+
+        <!-- CTR context bar chart -->
+        <div class="bar-chart-card">
+          <div class="bar-chart-label">Click-through rate — industry context</div>
+          <div class="bar-row">
+            <div class="bar-row-tag">Ours</div>
+            <div class="bar-outer"><div class="bar-inner purple" style="width:100%"></div></div>
+            <div class="bar-val" style="color: var(--purple);">8.03%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-tag">Top 10%</div>
+            <div class="bar-outer"><div class="bar-inner dim" style="width:62%"></div></div>
+            <div class="bar-val">~5%</div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-tag">Average</div>
+            <div class="bar-outer"><div class="bar-inner dim" style="width:25%"></div></div>
+            <div class="bar-val">~2%</div>
+          </div>
+          <div class="rank-summary" style="margin-top:18px;">Our CTR is <strong>4× the industry average</strong> — meaning more clicks for the same ad spend.</div>
+        </div>
+
       </div>
     </div>
   </section>
