@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SC Marketing — Real Campaigns. Real Results. Guaranteed.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080808;
+      --white: #ffffff;
+      --purple: #7F77DD;
+      --purple-dark: #534AB7;
+      --purple-light: #EEEDFE;
+      --green-hover: #bbf7d0;
+      --green-text: #14532d;
+      --gray-50: #f9f9f8;
+      --gray-100: #f1f0ec;
+      --gray-200: #e2e0d8;
+      --gray-400: #9b9890;
+      --gray-600: #5f5e58;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-600);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 22px;
+      border-radius: 6px;
+      border: 1.5px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn:hover, .btn:active {
+      background: var(--green-hover);
+      color: var(--green-text);
+      border-color: #86efac;
+    }
+
+    .btn-large {
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border-width: 1.5px;
+    }
+
+    .btn-on-dark {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .btn-on-dark:hover, .btn-on-dark:active {
+      background: var(--green-hover);
+      color: var(--green-text);
+      border-color: #86efac;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 100px 48px 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127,119,221,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: 10%;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127,119,221,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 36px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--purple);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 .accent { color: var(--purple); }
+
+    .hero-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.58);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.28);
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-sub span { display: flex; align-items: center; gap: 6px; }
+    .hero-sub span::before { content: '·'; color: rgba(255,255,255,0.2); }
+    .hero-sub span:first-child::before { display: none; }
+
+    /* ── Section base ── */
+    .section {
+      padding: 88px 48px;
+    }
+
+    .section-inner { max-width: 1060px; margin: 0 auto; }
+
+    .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--gray-600);
+      margin-bottom: 56px;
+      max-width: 520px;
+    }
+
+    /* ── Process ── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--gray-200);
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .process-card {
+      background: var(--white);
+      padding: 36px 32px;
+    }
+
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .process-card h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ── Services ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .service-card {
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 32px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--purple);
+      background: var(--purple-light);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--purple-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    /* ── Results ── */
+    .results-section { background: var(--gray-50); }
+
+    .results-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .result-bar { margin-bottom: 24px; }
+
+    .result-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .result-bar-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-600);
+    }
+
+    .result-bar-val {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .bar-bg {
+      height: 5px;
+      background: var(--gray-200);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--purple);
+      border-radius: 4px;
+      transform-origin: left;
+      animation: growBar 1s ease-out forwards;
+    }
+
+    @keyframes growBar {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    .stats-stack { display: flex; flex-direction: column; gap: 16px; }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+
+    /* ── Pricing model ── */
+    .pricing-block {
+      background: var(--purple-light);
+      border: 1px solid rgba(127,119,221,0.25);
+      border-radius: 16px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .pricing-block h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+
+    .pricing-block p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--gray-600);
+      line-height: 1.65;
+      max-width: 440px;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--black);
+      color: var(--white);
+      padding: 100px 48px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cta-section h2 span { color: var(--purple); }
+
+    .cta-section p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      max-width: 440px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+
+    .cta-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-note span::before { content: '·'; margin-right: 16px; color: rgba(255,255,255,0.15); }
+    .cta-note span:first-child::before { display: none; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--purple); }
+
+    footer p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── Divider ── */
+    .divider { height: 1px; background: var(--gray-200); }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 72px 24px 80px; }
+      .section { padding: 64px 24px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .results-layout { grid-template-columns: 1fr; gap: 40px; }
+      .pricing-block { grid-template-columns: 1fr; gap: 28px; }
+      .cta-section { padding: 72px 24px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#" class="nav-logo">SC <span>Marketing</span></a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+    </ul>
+    <a href="#contact" class="btn">Book a free call</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Google Ads + Landing Pages — Australia</div>
+      <h1>Real campaigns.<br>Real results.<br><span class="accent">Guaranteed.</span></h1>
+      <p class="hero-desc">We build high-converting landing pages and run targeted Google Ads for Australian small businesses — and we only get paid on results we actually deliver.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-large btn-on-dark">Book your free strategy call</a>
+      </div>
+      <div class="hero-sub">
+        <span>Commission-based pricing</span>
+        <span>Australian businesses only</span>
+        <span>Results in 30 days</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section" id="how-it-works">
+    <div class="section-inner">
+      <p class="label">How it works</p>
+      <h2 class="section-title">Three steps to more customers</h2>
+      <p class="section-sub">We handle everything — you focus on running your business.</p>
+      <div class="process-grid fade-up">
+        <div class="process-card">
+          <div class="step-num">Step 01</div>
+          <h3>Strategy call</h3>
+          <p>We learn your business, your customers, and your goals. No fluff — just a clear plan tailored to your market.</p>
+        </div>
+        <div class="process-card">
+          <div class="step-num">Step 02</div>
+          <h3>We build & launch</h3>
+          <p>A custom landing page built to convert, paired with targeted Google Ads campaigns reaching customers ready to buy.</p>
+        </div>
+        <div class="process-card">
+          <div class="step-num">Step 03</div>
+          <h3>You get leads</h3>
+          <p>Real enquiries from real customers. We only charge commission on results that exceed your existing baseline — you keep everything below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-inner">
+      <p class="label">Services</p>
+      <h2 class="section-title">Everything you need to grow</h2>
+      <p class="section-sub">Built specifically for Australian small and medium businesses.</p>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <rect x="2" y="3" width="16" height="11" rx="2.5" stroke="#534AB7" stroke-width="1.3"/>
+              <rect x="6" y="16" width="8" height="2" rx="1" fill="#534AB7"/>
+            </svg>
+          </div>
+          <h3>Landing page design</h3>
+          <p>Conversion-focused pages built from scratch — copy, design, and full technical setup included. Designed to turn visitors into enquiries.</p>
+        </div>
+        <div class="service-card fade-up" style="transition-delay:0.1s">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="7" stroke="#534AB7" stroke-width="1.3"/>
+              <path d="M7 10l2.5 2.5L14 7" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Google Ads management</h3>
+          <p>Targeted campaigns that reach customers actively searching for what you offer — right place, right time, right message.</p>
+        </div>
+        <div class="service-card fade-up" style="transition-delay:0.15s">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3 14l4.5-4.5 3 3 5.5-6.5" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Weekly reporting</h3>
+          <p>Every week we send a clear, jargon-free report covering all campaign activities, results, and planned next steps — so you're always in the loop.</p>
+        </div>
+        <div class="service-card fade-up" style="transition-delay:0.2s">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3v3M10 14v3M3 10h3M14 10h3" stroke="#534AB7" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="10" cy="10" r="3" stroke="#534AB7" stroke-width="1.3"/>
+            </svg>
+          </div>
+          <h3>Ongoing optimisation</h3>
+          <p>Weekly refinements to bids, keywords, and copy to keep your cost-per-lead dropping and your return on ad spend climbing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section class="section results-section" id="results">
+    <div class="section-inner">
+      <p class="label">Results</p>
+      <h2 class="section-title">What clients see in 30 days</h2>
+      <p class="section-sub">Average results across active campaigns.</p>
+      <div class="results-layout">
+        <div>
+          <div class="result-bar">
+            <div class="result-bar-header">
+              <span class="result-bar-label">Lead volume increase</span>
+              <span class="result-bar-val">+82%</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width:82%"></div></div>
+          </div>
+          <div class="result-bar">
+            <div class="result-bar-header">
+              <span class="result-bar-label">Cost per lead reduction</span>
+              <span class="result-bar-val">−64%</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width:64%"></div></div>
+          </div>
+          <div class="result-bar">
+            <div class="result-bar-header">
+              <span class="result-bar-label">Landing page conversion rate</span>
+              <span class="result-bar-val">7.4%</span>
+            </div>
+            <div class="bar-bg"><div class="bar-fill" style="width:74%"></div></div>
+          </div>
+        </div>
+        <div class="stats-stack">
+          <div class="stat-card">
+            <div class="stat-num">30</div>
+            <div class="stat-label">Days to first results</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Australian businesses served</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0%</div>
+            <div class="stat-label">Fee unless we deliver</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Pricing model -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="pricing-block fade-up">
+        <div>
+          <h3>We only win when you win</h3>
+          <p>Our pricing is 100% commission-based on results above your current baseline. That means we have zero interest in running campaigns that don't perform — our income depends on yours growing. No retainers, no setup fees, no surprises.</p>
+        </div>
+        <a href="#contact" class="btn btn-large" style="white-space:nowrap">Learn how it works</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Ready to get<br><span>more customers?</span></h2>
+    <p>Book a free 30-minute strategy call. We'll show you exactly what's possible — and you only pay when we beat your current results.</p>
+    <a href="mailto:hello@scmarketing.com.au" class="btn btn-large btn-on-dark">Book your free call today</a>
+    <div class="cta-note">
+      <span>Free call</span>
+      <span>No obligation</span>
+      <span>Commission on results only</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="#" class="footer-logo">SC <span>Marketing</span></a>
+    <p>© 2025 SC Marketing. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
